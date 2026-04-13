@@ -3,153 +3,314 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michelle's Podcast</title>
-  <meta name="description" content="A podcast about real conversations, creative work, and growth." />
+  <title>Tell Me How You Really Feel</title>
+  <meta
+    name="description"
+    content="Tell Me How You Really Feel with Michelle Serra and Hannah Ledeen. We rate film and television by awards-critic standards, then by our honest viewer opinions."
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     :root {
-      --bg: #f8fafc;
-      --text: #0f172a;
-      --muted: #475569;
-      --card: #ffffff;
-      --line: #e2e8f0;
-      --brand: #2563eb;
-      --brand-dark: #1d4ed8;
+      --bg: #111111;
+      --bg-soft: #1b1b1b;
+      --text: #f6f1e8;
+      --muted: #d5c6a1;
+      --gold: #c9a34a;
+      --gold-soft: #f0dfb3;
+      --line: #3a3122;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
       color: var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(201, 163, 74, 0.18), transparent 36%),
+        radial-gradient(circle at 80% 10%, rgba(201, 163, 74, 0.14), transparent 32%),
+        var(--bg);
+      font-family: "Montserrat", Arial, sans-serif;
       line-height: 1.6;
     }
 
     .container {
-      max-width: 900px;
+      width: min(1080px, 92%);
       margin: 0 auto;
-      padding: 20px;
+    }
+
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(3px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      color: var(--gold-soft);
+      margin: 0;
     }
 
     nav {
       display: flex;
-      gap: 16px;
-      padding: 12px 0 20px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 24px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: var(--muted);
+      color: var(--text);
       text-decoration: none;
-      font-weight: 600;
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      transition: 0.2s ease;
     }
 
     nav a:hover {
-      color: var(--brand-dark);
+      border-color: var(--gold);
+      color: var(--gold-soft);
     }
 
-    h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
+    .hero {
+      padding: 72px 0 46px;
+      text-align: center;
     }
 
-    .subtitle {
+    .hero-kicker {
+      display: inline-block;
       color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 20px;
     }
 
-    .buttons {
+    .hero h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.3rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      color: var(--gold-soft);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 20px auto 0;
+      font-size: 1.08rem;
+      color: #f4eee1;
+    }
+
+    .button-row {
+      margin-top: 30px;
       display: flex;
+      justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
-      margin: 18px 0 30px;
     }
 
     .btn {
-      display: inline-block;
-      background: var(--brand);
-      color: white;
       text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 8px;
+      padding: 11px 17px;
+      border-radius: 10px;
+      border: 1px solid var(--gold);
+      color: #111;
+      background: linear-gradient(180deg, #e8cc8b, #c9a34a);
       font-weight: 600;
     }
 
-    .btn:hover {
-      background: var(--brand-dark);
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold-soft);
+      border: 1px solid var(--line);
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      color: var(--gold-soft);
+      margin: 0 0 8px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
     .card {
-      background: var(--card);
+      background: var(--bg-soft);
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
+      border-radius: 14px;
+      padding: 18px;
     }
 
-    h2 {
-      margin-top: 28px;
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-family: "Cormorant Garamond", serif;
+      color: var(--gold-soft);
+      font-size: 1.5rem;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e5d5af;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
       margin-bottom: 10px;
     }
 
+    .quote {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      color: #f7ebd0;
+      text-align: center;
+      max-width: 900px;
+      margin: 22px auto;
+      padding: 20px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
     footer {
-      margin-top: 34px;
-      padding-top: 16px;
+      margin-top: 40px;
+      padding: 24px 0 40px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.95rem;
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding-top: 52px;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="episodes.html">Episodes</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <p class="brand">Tell Me How You Really Feel</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="episodes.html">Episodes</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <h1>Michelle's Podcast</h1>
-    <p class="subtitle">
-      Real conversations on creativity, business, and building a life you actually enjoy.
-    </p>
+  <main>
+    <section class="hero container">
+      <span class="hero-kicker">Film + TV Podcast</span>
+      <h1>Tell Me How You Really Feel</h1>
+      <p>
+        Hosted by Michelle Serra and Hannah Ledeen. We rate films and TV in two passes:
+        first how awards critics would score them, then how we honestly feel as viewers.
+      </p>
 
-    <section>
-      <h2>Listen Now</h2>
-      <div class="buttons">
-        <a class="btn" href="https://open.spotify.com/" target="_blank" rel="noreferrer">Spotify</a>
-        <a class="btn" href="https://podcasts.apple.com/" target="_blank" rel="noreferrer">Apple Podcasts</a>
-        <a class="btn" href="https://www.youtube.com/" target="_blank" rel="noreferrer">YouTube</a>
+      <div class="button-row">
+        <a class="btn" href="https://open.spotify.com/" target="_blank" rel="noreferrer">Listen on Spotify</a>
+        <a class="btn" href="https://podcasts.apple.com/" target="_blank" rel="noreferrer">Listen on Apple</a>
+        <a class="btn btn-secondary" href="episodes.html">Browse Episodes</a>
       </div>
     </section>
 
-    <section>
-      <h2>Latest Episode</h2>
-      <article class="card">
-        <h3>Episode 1: Starting From Zero</h3>
+    <section class="section container">
+      <h2 class="section-title">How We Rate</h2>
+      <p class="section-sub">Two scores. One polished. One painfully honest.</p>
+
+      <div class="grid">
+        <article class="card">
+          <span class="pill">Round One</span>
+          <h3>Awards-Critic Score</h3>
+          <p>
+            We evaluate performance, directing, writing, cinematography, and prestige-level craft.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="pill">Round Two</span>
+          <h3>Viewer Truth Score</h3>
+          <p>
+            Did we love it? Did we hate it? Did we finish it? No filter, just real reactions.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="pill">The Twist</span>
+          <h3>The Gap</h3>
+          <p>
+            The best moments happen when critical acclaim and audience feeling do not match.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <p class="quote">
+      "Where old-Hollywood glamour meets modern-day hot takes."
+    </p>
+
+    <section class="section container">
+      <h2 class="section-title">Featured Episode</h2>
+      <div class="card">
+        <span class="pill">Latest</span>
+        <h3>Episode 01: Prestige vs. Pleasure</h3>
         <p>
-          In this episode, we talk about starting before you feel ready, learning in public,
-          and taking your first practical steps.
+          We kick off the show by breaking down what makes something "award-worthy" versus
+          what makes it genuinely enjoyable to watch.
         </p>
-        <a href="episodes.html">Read show notes →</a>
-      </article>
+        <p><a class="btn btn-secondary" href="episodes.html">Read Show Notes</a></p>
+      </div>
     </section>
-
-    <section>
-      <h2>What This Show Is About</h2>
-      <p>
-        Each week, I share honest stories, practical lessons, and conversations with people
-        doing meaningful work. If you want clear ideas without the fluff, this show is for you.
-      </p>
-    </section>
-
-    <footer>
-      <p>© 2026 Michelle's Podcast • Follow on Instagram @yourhandle</p>
-    </footer>
   </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Tell Me How You Really Feel • Hosted by Michelle Serra + Hannah Ledeen
+    </div>
+  </footer>
 </body>
 </html>
