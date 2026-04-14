@@ -4,234 +4,203 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tell Me How You Really Feel</title>
-  <meta
-    name="description"
-    content="Tell Me How You Really Feel with Michelle Serra and Hannah Ledeen. We rate film and television by awards-critic standards, then by our honest viewer opinions."
-  />
+  <meta name="description" content="Michelle Serra and Hannah Ledeen rate film and television by awards standards, then by honest viewer opinions." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #111111;
-      --bg-soft: #1b1b1b;
-      --text: #f6f1e8;
-      --muted: #d5c6a1;
-      --gold: #c9a34a;
-      --gold-soft: #f0dfb3;
-      --line: #3a3122;
+      --bg: #fcfaf7;
+      --card: #ffffff;
+      --text: #1f1f1f;
+      --muted: #5a5a5a;
+      --line: #e9e3d7;
+      --gold: #b8975a;
+      --gold-soft: #f3ead8;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
+      font-family: Inter, Arial, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(201, 163, 74, 0.18), transparent 36%),
-        radial-gradient(circle at 80% 10%, rgba(201, 163, 74, 0.14), transparent 32%),
-        var(--bg);
-      font-family: "Montserrat", Arial, sans-serif;
+      background: var(--bg);
       line-height: 1.6;
     }
 
-    .container {
+    .wrap {
       width: min(1080px, 92%);
       margin: 0 auto;
     }
 
-    .topbar {
+    header {
+      padding: 18px 0;
       border-bottom: 1px solid var(--line);
-      background: rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(3px);
+      background: rgba(252, 250, 247, 0.9);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(4px);
     }
 
-    .topbar-inner {
+    .top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 0;
-      gap: 20px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .brand {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.04em;
-      color: var(--gold-soft);
       margin: 0;
-    }
-
-    nav {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.7rem;
+      letter-spacing: .02em;
     }
 
     nav a {
+      margin-left: 12px;
       color: var(--text);
       text-decoration: none;
-      border: 1px solid var(--line);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      transition: 0.2s ease;
-    }
-
-    nav a:hover {
-      border-color: var(--gold);
-      color: var(--gold-soft);
+      font-weight: 500;
     }
 
     .hero {
-      padding: 72px 0 46px;
+      padding: 70px 0 46px;
       text-align: center;
     }
 
-    .hero-kicker {
+    .kicker {
       display: inline-block;
-      color: var(--muted);
       border: 1px solid var(--line);
+      background: #fff;
       border-radius: 999px;
-      padding: 7px 14px;
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
+      padding: 6px 12px;
+      font-size: .8rem;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      color: var(--muted);
     }
 
-    .hero h1 {
-      margin: 0;
+    h1 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.3rem, 6vw, 4.5rem);
-      line-height: 1.05;
-      letter-spacing: 0.01em;
-      color: var(--gold-soft);
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      line-height: 1.1;
+      margin: 14px 0 10px;
     }
 
-    .hero p {
-      max-width: 760px;
-      margin: 20px auto 0;
-      font-size: 1.08rem;
-      color: #f4eee1;
+    .sub {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
 
-    .button-row {
-      margin-top: 30px;
+    .buttons {
+      margin-top: 22px;
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .btn {
       text-decoration: none;
-      padding: 11px 17px;
+      padding: 10px 14px;
       border-radius: 10px;
-      border: 1px solid var(--gold);
-      color: #111;
-      background: linear-gradient(180deg, #e8cc8b, #c9a34a);
       font-weight: 600;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--gold-soft);
       border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
     }
 
-    .section {
-      padding: 28px 0;
+    .btn.gold {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: white;
     }
 
-    .section-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      color: var(--gold-soft);
-      margin: 0 0 8px;
-    }
-
-    .section-sub {
-      color: var(--muted);
-      margin: 0 0 20px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    section {
+      padding: 26px 0;
     }
 
     .card {
-      background: var(--bg-soft);
+      background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 18px;
+      border-radius: 16px;
+      padding: 20px;
     }
 
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 6px;
+    h2 {
       font-family: "Cormorant Garamond", serif;
-      color: var(--gold-soft);
-      font-size: 1.5rem;
+      font-size: 2rem;
+      margin: 0 0 8px;
     }
 
-    .pill {
-      display: inline-block;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #e5d5af;
+    .muted { color: var(--muted); }
+
+    /* Film chair feature */
+    .chairs-stage {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 5px 10px;
-      margin-bottom: 10px;
+      background: #fff;
     }
+
+    .chairs-stage img {
+      width: 100%;
+      display: block;
+      filter: grayscale(100%);
+    }
+
+    .chair-name {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #d8c9ab;
+      color: #2b2b2b;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      white-space: nowrap;
+    }
+
+    /* Adjust these positions to sit directly on your chosen chairs */
+    .michelle { left: 16%; top: 52%; }
+    .hannah   { left: 54%; top: 54%; }
 
     .quote {
+      margin: 0;
+      padding: 14px 0 0;
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.55rem;
-      color: #f7ebd0;
-      text-align: center;
-      max-width: 900px;
-      margin: 22px auto;
-      padding: 20px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      font-size: 1.4rem;
+      color: #3b3b3b;
     }
 
     footer {
-      margin-top: 40px;
-      padding: 24px 0 40px;
+      margin-top: 24px;
       border-top: 1px solid var(--line);
-      color: var(--muted);
+      padding: 24px 0 40px;
       text-align: center;
-      font-size: 0.92rem;
+      color: var(--muted);
+      font-size: .95rem;
     }
 
     @media (max-width: 700px) {
-      .hero {
-        padding-top: 52px;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
+      .michelle { left: 9%; top: 50%; font-size: .95rem; }
+      .hannah   { left: 50%; top: 52%; font-size: .95rem; }
+      nav a { margin-left: 8px; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
+  <header>
+    <div class="wrap top">
       <p class="brand">Tell Me How You Really Feel</p>
       <nav>
         <a href="index.html">Home</a>
@@ -242,76 +211,39 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero container">
-      <span class="hero-kicker">Film + TV Podcast</span>
-      <h1>Tell Me How You Really Feel</h1>
-      <p>
-        Hosted by Michelle Serra and Hannah Ledeen. We rate films and TV in two passes:
-        first how awards critics would score them, then how we honestly feel as viewers.
+  <main class="wrap">
+    <section class="hero">
+      <span class="kicker">Film + TV Podcast</span>
+      <h1>Critics’ Scores vs. Real Feelings</h1>
+      <p class="sub">
+        Hosted by Michelle Serra + Hannah Ledeen. We rate film and television
+        by awards-critic standards, then give our honest opinions as viewers.
       </p>
-
-      <div class="button-row">
-        <a class="btn" href="https://open.spotify.com/" target="_blank" rel="noreferrer">Listen on Spotify</a>
-        <a class="btn" href="https://podcasts.apple.com/" target="_blank" rel="noreferrer">Listen on Apple</a>
-        <a class="btn btn-secondary" href="episodes.html">Browse Episodes</a>
+      <div class="buttons">
+        <a class="btn gold" href="https://open.spotify.com/" target="_blank" rel="noreferrer">Spotify</a>
+        <a class="btn gold" href="https://podcasts.apple.com/" target="_blank" rel="noreferrer">Apple Podcasts</a>
+        <a class="btn" href="episodes.html">Browse Episodes</a>
       </div>
     </section>
 
-    <section class="section container">
-      <h2 class="section-title">How We Rate</h2>
-      <p class="section-sub">Two scores. One polished. One painfully honest.</p>
-
-      <div class="grid">
-        <article class="card">
-          <span class="pill">Round One</span>
-          <h3>Awards-Critic Score</h3>
-          <p>
-            We evaluate performance, directing, writing, cinematography, and prestige-level craft.
-          </p>
-        </article>
-
-        <article class="card">
-          <span class="pill">Round Two</span>
-          <h3>Viewer Truth Score</h3>
-          <p>
-            Did we love it? Did we hate it? Did we finish it? No filter, just real reactions.
-          </p>
-        </article>
-
-        <article class="card">
-          <span class="pill">The Twist</span>
-          <h3>The Gap</h3>
-          <p>
-            The best moments happen when critical acclaim and audience feeling do not match.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <p class="quote">
-      "Where old-Hollywood glamour meets modern-day hot takes."
-    </p>
-
-    <section class="section container">
-      <h2 class="section-title">Featured Episode</h2>
+    <section>
       <div class="card">
-        <span class="pill">Latest</span>
-        <h3>Episode 01: Prestige vs. Pleasure</h3>
-        <p>
-          We kick off the show by breaking down what makes something "award-worthy" versus
-          what makes it genuinely enjoyable to watch.
-        </p>
-        <p><a class="btn btn-secondary" href="episodes.html">Read Show Notes</a></p>
+        <h2>Meet the Hosts</h2>
+        <p class="muted">A little old-Hollywood glamour, a little modern chaos.</p>
+
+        <div class="chairs-stage">
+          <img src="images/chairs.jpg" alt="Vintage film set chairs" />
+          <span class="chair-name michelle">Michelle Serra</span>
+          <span class="chair-name hannah">Hannah Ledeen</span>
+        </div>
+
+        <p class="quote">“Prestige taste, popcorn opinions.”</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      © 2026 Tell Me How You Really Feel • Hosted by Michelle Serra + Hannah Ledeen
-    </div>
+    © 2026 Tell Me How You Really Feel
   </footer>
 </body>
 </html>
-<p>TEST UPDATE Mon Apr 13 15:14:13 PDT 2026</p>
