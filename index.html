@@ -6,26 +6,32 @@
   <title>Tell Me How You Really Feel</title>
   <meta
     name="description"
-    content="Tell Me How You Really Feel with Michelle Serra and Hannah Ledeen — film and TV reviews through awards-critic ratings vs honest viewer opinions."
+    content="A film and TV podcast by Michelle Serra and Hannah Ledeen: critics' score vs our honest take."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
   <style>
     :root {
-      --bg: #f8f6f2;
-      --paper: #ffffff;
-      --ink: #1f1f23;
-      --muted: #64605a;
-      --gold: #b89354;
-      --gold-deep: #9f7b3d;
-      --line: #e8e0d3;
-      --shadow: 0 10px 24px rgba(35, 26, 12, 0.08);
+      --bg: #f4f1eb;
+      --panel: #ffffff;
+      --ink: #27221e;
+      --muted: #6d6459;
+      --line: #e3dacd;
+      --accent: #c7652d;
+      --accent-dark: #ab531f;
+      --green: #668c46;
+      --soft-green: #dce6cb;
+      --soft-orange: #f2dfd2;
+      --chip-bg: #f7f1e8;
+      --chair-wood: #7e5a3b;
+      --chair-fabric: #efe3cf;
+      --chair-fabric-line: #ccb28a;
     }
 
     * { box-sizing: border-box; }
@@ -33,282 +39,624 @@
     body {
       margin: 0;
       font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
       color: var(--ink);
-      background:
-        radial-gradient(circle at 90% -10%, #fff4dc 0%, rgba(255, 244, 220, 0) 34%),
-        radial-gradient(circle at 0% 0%, #fff8ea 0%, rgba(255, 248, 234, 0) 24%),
-        var(--bg);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
-    .wrap {
-      width: min(1100px, 92%);
+    .container {
+      width: min(1120px, 92%);
       margin: 0 auto;
     }
 
-    header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(248, 246, 242, 0.88);
-      backdrop-filter: blur(4px);
+    .site-header {
       position: sticky;
       top: 0;
       z-index: 10;
+      background: rgba(244, 241, 235, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(3px);
     }
 
-    .topbar {
+    .header-inner {
+      min-height: 84px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      padding: 16px 0;
     }
 
     .brand {
       margin: 0;
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.85rem;
-      letter-spacing: 0.02em;
+      font-size: 2.1rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     nav a {
-      color: var(--ink);
       text-decoration: none;
-      margin-left: 14px;
+      color: var(--muted);
       font-weight: 600;
-      font-size: 0.95rem;
     }
 
-    nav a:hover {
-      color: var(--gold-deep);
+    nav a:hover { color: var(--ink); }
+
+    .listen-btn {
+      display: inline-block;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 22px;
     }
+
+    .listen-btn:hover { background: var(--accent-dark); }
 
     .hero {
-      text-align: center;
-      padding: 70px 0 44px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      padding: 72px 0 30px;
     }
 
     .kicker {
-      display: inline-block;
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 0.78rem;
-      letter-spacing: 0.09em;
+      margin: 0 0 10px;
       text-transform: uppercase;
-      color: var(--muted);
+      letter-spacing: 0.13em;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
     }
 
-    h1 {
-      margin: 14px 0 10px;
+    .hero h1 {
+      margin: 0 0 18px;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.2rem, 6vw, 4.3rem);
-      line-height: 1.05;
+      font-size: clamp(2.7rem, 7vw, 5.3rem);
+      line-height: 1.02;
+      max-width: 640px;
     }
 
-    .sub {
-      margin: 0 auto;
-      max-width: 760px;
+    .hero p {
+      margin: 0;
       color: var(--muted);
+      max-width: 560px;
       font-size: 1.05rem;
     }
 
-    .buttons {
+    .hero-actions {
       margin-top: 24px;
       display: flex;
-      gap: 10px;
-      justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
       text-decoration: none;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-weight: 700;
-      border: 1px solid var(--line);
       color: var(--ink);
-      background: #fff;
+      border: 1px solid #cfc4b5;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      background: transparent;
     }
 
-    .btn.gold {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: #fff;
+    .right-col {
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      margin-top: 40px;
     }
 
-    .btn.gold:hover {
-      background: var(--gold-deep);
-      border-color: var(--gold-deep);
-    }
-
-    section {
-      margin-bottom: 24px;
-    }
-
-    .panel {
-      background: var(--paper);
+    .host-card {
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: var(--shadow);
+      border-radius: 22px;
+      background: var(--panel);
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
     }
 
-    h2 {
+    .host-dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .host-dot.m { background: var(--soft-green); color: #4f7031; }
+    .host-dot.h { background: var(--soft-orange); color: #b85d2f; }
+
+    .host-name {
+      margin: 0;
       font-family: "Cormorant Garamond", serif;
       font-size: 2rem;
-      margin: 0 0 8px;
+      line-height: 1;
     }
 
-    .muted {
+    .host-quote {
+      margin: 3px 0 0;
       color: var(--muted);
-      margin-top: 0;
+      font-style: italic;
+      font-weight: 500;
     }
 
-    .grid {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      margin-top: 14px;
+    .ampersand {
+      text-align: center;
+      color: #b7aa97;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.4rem;
+      line-height: 1;
     }
 
-    .card {
+    /* CSS-only director chairs */
+    .chairs-wrap {
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px;
-      background: #fff;
+      border-radius: 18px;
+      background: #f1eadf;
+      padding: 20px 16px 14px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    .card h3 {
+    .chair {
+      position: relative;
+      width: 220px;
+      height: 220px;
+    }
+
+    .chair-back {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 172px;
+      height: 64px;
+      border: 2px solid var(--chair-fabric-line);
+      border-radius: 10px;
+      background: var(--chair-fabric);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 4px 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1rem;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #6c4d31;
+      font-weight: 700;
+    }
+
+    .chair-seat {
+      position: absolute;
+      left: 50%;
+      top: 86px;
+      transform: translateX(-50%);
+      width: 168px;
+      height: 14px;
+      border: 2px solid var(--chair-fabric-line);
+      border-radius: 6px;
+      background: #e2d1b3;
+    }
+
+    .leg,
+    .leg::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      background: var(--chair-wood);
+      border-radius: 5px;
+    }
+
+    .leg.left {
+      left: 54px;
+      top: 52px;
+      height: 152px;
+      transform: rotate(28deg);
+      transform-origin: top;
+    }
+
+    .leg.left::after {
+      left: 112px;
+      top: -4px;
+      height: 152px;
+      transform: rotate(-56deg);
+      transform-origin: top;
+    }
+
+    .leg.right {
+      right: 54px;
+      top: 52px;
+      height: 152px;
+      transform: rotate(-28deg);
+      transform-origin: top;
+    }
+
+    .leg.right::after {
+      right: 112px;
+      top: -4px;
+      height: 152px;
+      transform: rotate(56deg);
+      transform-origin: top;
+    }
+
+    .chair-foot {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 6px;
+      border-radius: 6px;
+      background: #8a6445;
+    }
+
+    .section {
+      padding: 24px 0;
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .episode-feature {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--panel);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      background: #f5e8db;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.84rem;
+      padding: 6px 11px;
+      margin-bottom: 12px;
+    }
+
+    .episode-title {
       margin: 0 0 6px;
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.45rem;
+      font-size: 3.4rem;
+      line-height: 1;
     }
 
-    .chairs-stage {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #f0ebe3;
-      margin-top: 10px;
+    .episode-meta,
+    .episode-desc {
+      margin: 0;
+      color: var(--muted);
     }
 
-    .chairs-stage img {
-      display: block;
-      width: 100%;
-      max-height: 560px;
-      object-fit: cover;
-      filter: grayscale(100%);
+    .episode-desc { margin-top: 12px; }
+
+    .scores {
+      min-width: 130px;
+      text-align: right;
+      align-self: center;
     }
 
-    .name-tag {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.93);
-      border: 1px solid #d9c49d;
-      border-radius: 999px;
-      padding: 8px 12px;
+    .score {
+      margin: 0;
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.2rem;
+      font-size: 3rem;
+      line-height: 1;
       font-weight: 700;
-      color: #2c2a27;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
-      white-space: nowrap;
     }
 
-    /* Adjust these two positions if you want tags moved */
-    .michelle { left: 20%; top: 44%; }
-    .hannah   { left: 56%; top: 45%; }
+    .score.green { color: var(--green); }
+    .score.orange { color: var(--accent); }
 
-    .quote {
-      margin: 14px 0 0;
+    .score-label {
+      margin: 2px 0 14px;
+      color: var(--muted);
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .mini-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel);
+      padding: 20px;
+    }
+
+    .mini-type {
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .mini-type.green { color: var(--green); }
+
+    .mini-card h3 {
+      margin: 0 0 4px;
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.5rem;
-      color: #3a3631;
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .mini-meta {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .mini-scores {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .mini-num {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.1rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .criteria {
+      margin-top: 34px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #f1e9df;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .criteria h3 {
+      margin: 0 0 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 3rem;
+      line-height: 1.05;
+    }
+
+    .criteria p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 470px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-content: center;
+    }
+
+    .chip {
+      border: 1px solid #d8cdbf;
+      border-radius: 999px;
+      background: #fff;
+      padding: 8px 14px;
+      font-weight: 600;
+      color: #5d5348;
     }
 
     footer {
       border-top: 1px solid var(--line);
-      margin-top: 12px;
-      text-align: center;
+      margin-top: 26px;
+      padding: 24px 0 40px;
       color: var(--muted);
-      padding: 24px 0 38px;
-      font-size: 0.92rem;
+      text-align: center;
+      font-size: 0.95rem;
     }
 
-    @media (max-width: 760px) {
-      .hero { padding-top: 54px; }
-      .michelle { left: 12%; top: 40%; font-size: 0.95rem; }
-      .hannah   { left: 50%; top: 43%; font-size: 0.95rem; }
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .right-col { margin-top: 0; }
+      .episode-feature { grid-template-columns: 1fr; }
+      .scores { text-align: left; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .criteria { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap topbar">
+  <header class="site-header">
+    <div class="container header-inner">
       <p class="brand">Tell Me How You Really Feel</p>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="episodes.html">Episodes</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="#">Episodes</a>
+        <a href="#">Reviews</a>
+        <a href="#">About us</a>
+        <a class="listen-btn" href="#">Listen now</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="container">
     <section class="hero">
-      <span class="kicker">Film + TV Podcast</span>
-      <h1>Critics’ Scores vs. Real Feelings</h1>
-      <p class="sub">
-        Hosted by Michelle Serra + Hannah Ledeen. We rate film and television by awards-critic
-        standards, then give our honest opinions as viewers.
-      </p>
-      <div class="buttons">
-        <a class="btn gold" href="https://open.spotify.com/" target="_blank" rel="noreferrer">Spotify</a>
-        <a class="btn gold" href="https://podcasts.apple.com/" target="_blank" rel="noreferrer">Apple Podcasts</a>
-        <a class="btn" href="episodes.html">Browse Episodes</a>
+      <div>
+        <p class="kicker">A film & tv podcast</p>
+        <h1>We watched it.<br />We may or may not<br />have agreed.<br />Here's how we<br />really feel.</h1>
+        <p>
+          We watch everything from prestige dramas to total disasters — then break it down
+          like critics and argue about it like best friends.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#">Latest episode</a>
+          <a class="btn" href="#">Browse all</a>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <article class="host-card">
+          <div class="host-dot m">M</div>
+          <div>
+            <p class="host-name">Michelle Serra</p>
+            <p class="host-quote">"If the score is bad, I’ll tell you."</p>
+          </div>
+        </article>
+
+        <div class="ampersand">&amp;</div>
+
+        <article class="host-card">
+          <div class="host-dot h">H</div>
+          <div>
+            <p class="host-name">Hannah Ledeen</p>
+            <p class="host-quote">"I have opinions about opinions."</p>
+          </div>
+        </article>
+
+        <div class="chairs-wrap">
+          <div class="chair">
+            <div class="chair-back">Michelle<br />Serra</div>
+            <div class="chair-seat"></div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+            <div class="chair-foot"></div>
+          </div>
+
+          <div class="chair">
+            <div class="chair-back">Hannah<br />Ledeen</div>
+            <div class="chair-seat"></div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+            <div class="chair-foot"></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="panel">
-      <h2>How We Rate</h2>
-      <p class="muted">One polished score. One honest score. The gap is the fun part.</p>
-      <div class="grid">
-        <article class="card">
-          <h3>Awards-Critic Score</h3>
-          <p>Performance, writing, directing, cinematography, and prestige-level craft.</p>
+    <section class="section">
+      <h2>Latest episode</h2>
+
+      <div class="episode-feature">
+        <div>
+          <span class="badge">Series · Ep. 01</span>
+          <h3 class="episode-title">The Bear, Season 3</h3>
+          <p class="episode-meta">May 2025 · 1h 12m · Drama</p>
+          <p class="episode-desc">
+            We finally watched it. The kitchen is still on fire, the cinematography is still
+            stunning, and Michelle and Hannah could not agree on whether the writing earned its chaos.
+          </p>
+        </div>
+
+        <div class="scores">
+          <p class="score green">84%</p>
+          <p class="score-label">Critics</p>
+          <p class="score orange">7.5</p>
+          <p class="score-label">Our take</p>
+        </div>
+      </div>
+
+      <div class="mini-grid">
+        <article class="mini-card">
+          <p class="mini-type">Film</p>
+          <h3>Past Lives</h3>
+          <p class="mini-meta">Ep. 02 · 58 min</p>
+          <div class="mini-scores">
+            <div>
+              <p class="mini-num" style="color: var(--green)">96%</p>
+              <p class="score-label" style="margin:0;">Critics</p>
+            </div>
+            <div>
+              <p class="mini-num" style="color: var(--accent)">9.0</p>
+              <p class="score-label" style="margin:0;">Our take</p>
+            </div>
+          </div>
         </article>
-        <article class="card">
-          <h3>Viewer Truth Score</h3>
-          <p>Did we enjoy it? Would we rewatch? Real reactions, no filter.</p>
+
+        <article class="mini-card">
+          <p class="mini-type green">Series</p>
+          <h3>Severance</h3>
+          <p class="mini-meta">Ep. 03 · 1h 4m</p>
+          <div class="mini-scores">
+            <div>
+              <p class="mini-num" style="color: var(--green)">97%</p>
+              <p class="score-label" style="margin:0;">Critics</p>
+            </div>
+            <div>
+              <p class="mini-num" style="color: var(--accent)">8.5</p>
+              <p class="score-label" style="margin:0;">Our take</p>
+            </div>
+          </div>
         </article>
-        <article class="card">
-          <h3>The Verdict</h3>
-          <p>Where critical acclaim and audience feeling either align... or totally clash.</p>
+
+        <article class="mini-card">
+          <p class="mini-type">Film</p>
+          <h3>Oppenheimer</h3>
+          <p class="mini-meta">Ep. 04 · 1h 22m</p>
+          <div class="mini-scores">
+            <div>
+              <p class="mini-num" style="color: var(--green)">93%</p>
+              <p class="score-label" style="margin:0;">Critics</p>
+            </div>
+            <div>
+              <p class="mini-num" style="color: var(--accent)">6.0</p>
+              <p class="score-label" style="margin:0;">Our take</p>
+            </div>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="panel">
-      <h2>Meet the Hosts</h2>
-      <p class="muted">Old Hollywood glamour, modern-day hot takes.</p>
-
-      <div class="chairs-stage">
-        <!-- If your filename is different, update this path exactly -->
-        <img src="./images/chairs.jpeg?v=1" alt="Vintage film set chairs" />
-        <span class="name-tag michelle">Michelle Serra</span>
-        <span class="name-tag hannah">Hannah Ledeen</span>
+    <section class="criteria">
+      <div>
+        <h3>How we actually review things</h3>
+        <p>
+          We don’t just say “it was good” or “it was bad.” We come prepared — each episode,
+          we go through the same criteria critics use, then compare our scores to the professional consensus.
+        </p>
       </div>
 
-      <p class="quote">“Prestige taste, popcorn opinions.”</p>
+      <div class="chips">
+        <span class="chip">Cinematography</span>
+        <span class="chip">Writing</span>
+        <span class="chip">Acting</span>
+        <span class="chip">Sound & score</span>
+        <span class="chip">Costume</span>
+        <span class="chip">Set design</span>
+        <span class="chip">Directing</span>
+        <span class="chip">Honest take</span>
+      </div>
     </section>
   </main>
 
   <footer>© 2026 Tell Me How You Really Feel</footer>
 </body>
 </html>
-
-<div style="background:#ffef77;padding:12px;font-weight:700">DEPLOY TEST 12:39:39</div>
